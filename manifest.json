@@ -1,0 +1,24 @@
+{
+    "name": "GetYoMoneyUp",
+    "description": "Prompts you to think before buying.",
+    "version": "1.0",
+    "manifest_version": 3,
+    "permissions": ["storage", "scripting", "activeTab"],
+    "host_permissions": ["https://*/*", "http://*/*"],
+    "background": {
+      "service_worker": "background.js"
+    },
+
+    "content_scripts": [
+      {
+        "matches": ["https://*/*", "http://*/*"],
+        "js": ["content.js"],
+        "css": ["UIpopup.css"]
+      }
+    ],
+
+    "action": {
+      "default_popup": "UIpopup.html",
+      "default_icon": "smiley.png"
+    }
+  }
