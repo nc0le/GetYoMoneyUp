@@ -1,5 +1,7 @@
 /*Listens for messages from content.js and triggers the pop-up when the user reaches a checkout page.*/
 
+
+
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     if (message.action === "showPopup") {
         chrome.action.openPopup();

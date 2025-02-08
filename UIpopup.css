@@ -28,4 +28,11 @@
   .popup-content button:hover {
     background: #ff5c5c;
   }
+  .manrope-font{
+    font-family: "Manrope", serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+  }
+  
   
