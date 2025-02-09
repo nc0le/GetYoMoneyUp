@@ -182,7 +182,7 @@ function showPopup6(popup) {
             document.getElementById("exit-button1")?.addEventListener("click", () => {
                 showPopupEmpty(popup);
             });
-            document.getElementById("save-button")?.addEventListener("click", () => {
+            document.getElementById("btn-save")?.addEventListener("click", () => {
                 saveForLater();
                 showPopupEmpty(popup);
             });
@@ -277,14 +277,17 @@ function showSavedItems() {
         let savedItemsContainer = document.getElementById("saved-items");
 
         list.forEach((link, index) => {
+            let shortText = link.length > 30 ? link.substring(0, 25) + "..." : link; // Truncate URL
+            let domain = new URL(link).hostname; // Get the domain name
+            
             let item = document.createElement("li");
-            item.innerHTML = `<a href="${link}" target="_blank">${link}</a> 
+            item.innerHTML = `<a href="${link}" target="_blank">${domain}/...</a> 
                               <button class="delete-btn" data-index="${index}">🗑️</button>`;
             savedItemsContainer.appendChild(item);
         });
 
         // Close button for saved items popup
-        document.getElementById("close-button").addEventListener("click", () => popup.remove());
+        document.getElementById("close-button").addEventListener("click", () =>showPopupEmpty(popup));
 
         // Attach event listeners to delete buttons
         document.querySelectorAll(".delete-btn").forEach(button => {
@@ -297,6 +300,7 @@ function showSavedItems() {
         });
     });
 }
+
 
 /* Delete a Saved Item */
 function deleteSavedItem(index) {
