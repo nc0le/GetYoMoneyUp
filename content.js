@@ -26,7 +26,9 @@ function showPopup(message) {
             document.body.appendChild(popup);
 
             // Attach event listeners AFTER inserting the popup
-            document.getElementById("close-button")?.addEventListener("click", () => popup.remove());
+            document.querySelector(".close-button")?.addEventListener("click", () => {
+                popup.remove(); // Removes the entire popup
+            });
             document.getElementById("btn-save")?.addEventListener("click", () => {
                 saveForLater();
                 popup.remove(); // Close popup after saving
@@ -97,13 +99,18 @@ function showSavedItems() {
         popup.id = "saved-popup";
         popup.className = "custom-popup";
         popup.innerHTML = `
+            <div class="modal-header">
+                <button id="close-button" class="btn close-button">✕</button>
+                <span class="site-name">getyomoneyup</span>
+            </div> 
+
             <div class="popup-content">
                 <h3>Saved for Later</h3>
                 <ul id="saved-items">
                     ${list.length === 0 ? "<p>No saved items.</p>" : ""}
                 </ul>
-                <button id="close-saved">Close</button>
             </div>`;
+
         document.body.appendChild(popup);
 
         let savedItemsContainer = document.getElementById("saved-items");
@@ -116,7 +123,7 @@ function showSavedItems() {
         });
 
         // Close button for saved items popup
-        document.getElementById("close-saved").addEventListener("click", () => popup.remove());
+        document.getElementById("close-button").addEventListener("click", () => popup.remove());
 
         // Attach event listeners to delete buttons
         document.querySelectorAll(".delete-btn").forEach(button => {
