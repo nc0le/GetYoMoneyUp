@@ -182,6 +182,11 @@ function showPopup6(popup) {
             document.getElementById("exit-button1")?.addEventListener("click", () => {
                 showPopupEmpty(popup);
             });
+            document.getElementById("save-button")?.addEventListener("click", () => {
+                saveForLater();
+                showPopupEmpty(popup);
+            });
+            
         })
         .catch(error => console.error("Error loading second popup:", error));
 }
