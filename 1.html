@@ -14,7 +14,12 @@
       </div> 
       
       <div class="warning-icon">
-        <img src="warningSign.png" alt="Warning Sign" class="warning-icon">
+        <img
+        loading="lazy"
+        src="https://cdn.builder.io/api/v1/image/assets/5908bb3fc4274044aed8528e1ce2987a/23bdda4877b74da786b8ffe93956e2bb9e54ad0f0839f1ec39c61e892d166b7d?placeholderIfAbsent=true"
+        class="responsive-image"
+        alt="Content image"
+      />
       </div>
 
       <div class="confirmation-text">
@@ -38,6 +43,16 @@
                 window.location.href = chrome.runtime.getURL("5.html");
             });
         </script>
+
+      <script>
+        window.addEventListener("beforeunload", function() {
+          const modal = document.querySelector('.modal-header'); 
+          if (modal) {
+            modal.style.display = 'none'; // Hide the modal before leaving the page
+          }
+        });
+      </script>
+
       </div>
     </div>
   </body>

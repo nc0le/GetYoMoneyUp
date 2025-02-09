@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>getyomoneyup</title>
+    <link rel="stylesheet" href="UIpopup.css">
+    <script src="content.js"></script>
+  </head>
+
+  <body>
+      <div class="modal-header">
+        <button id="close-button" class="btn close-button">✕</button>
+        <span class="site-name">getyomoneyup</span>
+        <button id="cart-button" class="btn cart-button">🛒</button>
+      </div> 
+      
+      <div class="warning-icon">
+        <img
+        loading="lazy"
+        src="https://cdn.builder.io/api/v1/image/assets/5908bb3fc4274044aed8528e1ce2987a/102b914aeaf1354787a64bb9c04a4817c4dc2d8586a8b218adecf16782086e5f?placeholderIfAbsent=true"
+        class="modal-image"
+        alt="Caution illustration"
+      />
+      </div>
+
+      <div class="confirmation-text">
+        <p class="caution-text">Please purchase with caution.</p>
+    </div>
+
+    <div class="button-group">
+        <button id="exit-button" class="btn exit-button">Exit</button>
+    </div>
+    <script>
+        document.getElementById("exit-button").addEventListener("click", function() {
+            // Navigate to 4.html when 'Yes' is clicked
+            window.location.href = chrome.runtime.getURL("empty.html");
+        });
+    </script>
+
+      </div>
+    </div>
+  </body>
+</html>
+
+
+

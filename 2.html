@@ -1,44 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-       <title>getyomoneyup</title>
-       <link rel="stylesheet" href="UIpopup.css">
-       <script src="content.js"></script>
-   <head>
-  
-   <body>
-       <div class="modal-header">
-            <button id="close-button" class="btn close-button">✕</button>
-            <span class="site-name">getyomoneyup</span>
-            <button id="cart-button" class="btn cart-button">🛒</button>
-       </div>
-          
-       <div class="bunny-icon">
-           <img src="judgementalBunny.jpg" alt="Judgemental Bunny">
-       </div>
-    
-       <div class="asking-text">
-           <p>Think about it some more. Is this something you need?</p>
-       </div>
-    
-       <div class="button-group">
-           <button id="btn-yes" class="btn btn-yes">Yes</button>
-           <script>
-                document.getElementById("btn-yes").addEventListener("click", function() {
-                    // Navigate to 3.html when 'Yes' is clicked
-                    window.location.href = chrome.runtime.getURL("3.html");
-                });
-            </script>
-           <button id="btn-save" class="btn btn-save">Save for Later</button>
-           <button id="btn-no" class="btn btn-no">No</button>
-            <script>
-                document.getElementById("btn-no").addEventListener("click", function() {
-                    // Navigate to 5.html when 'Yes' is clicked
-                    window.location.href = chrome.runtime.getURL("5.html");
-                });
-            </script>
-       </div>
+  <head>
+    <title>getyomoneyup</title>
+    <link rel="stylesheet" href="UIpopup.css">
+    <script src="content.js"></script>
+  </head>
+
+  <body>
+      <div class="modal-header">
+        <button id="close-button" class="btn close-button">✕</button>
+        <span class="site-name">getyomoneyup</span>
+        <button id="cart-button" class="btn cart-button">🛒</button>
+      </div> 
+      
+      <div class="warning-icon">
+        <img
+    loading="lazy"
+    src="https://cdn.builder.io/api/v1/image/assets/5908bb3fc4274044aed8528e1ce2987a/27365389b4d42c468078fe26451c2d4bf5e55de2cb8a9302810e345ddce65499?placeholderIfAbsent=true"
+    class="responsive-image"
+    alt=""
+  />
+      </div>
+
+      <div class="asking-text">
+        <p>Think about it some more. Is this something you need?</p>
+    </div>
+
+    <div class="button-group">
+        <button id="btn-yes" class="btn btn-yes">Yes</button>
+        <script>
+             document.getElementById("btn-yes").addEventListener("click", function() {
+                 // Navigate to 3.html when 'Yes' is clicked
+                 window.location.href = chrome.runtime.getURL("3.html");
+             });
+         </script>
+        <button id="btn-save" class="btn btn-save">Save for Later</button>
+        <button id="btn-no" class="btn btn-no">No</button>
+         <script>
+             document.getElementById("btn-no").addEventListener("click", function() {
+                 // Navigate to 5.html when 'Yes' is clicked
+                 window.location.href = chrome.runtime.getURL("5.html");
+             });
+         </script>
+    </div>
+
+      </div>
+    </div>
+  </body>
+</html>
 
 
-   </body>
-   </html>

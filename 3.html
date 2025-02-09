@@ -1,0 +1,21 @@
+
+      <header class="confirmation-header">
+        ARE YOU REALLY SURE?
+      </header>
+      <footer class="confirmation-actions">
+        <button id="confirm-button" class="button confirm-button">Yes</button>
+        <script>
+            document.getElementById("confirm-button").addEventListener("click", function() {
+                // Navigate to 4.html when 'Yes' is clicked
+                window.location.href = chrome.runtime.getURL("4.html");
+            });
+        </script>
+        <button id = "cancel-button" class="btn cancel-button">NO</button>
+        <script>
+            document.getElementById("cancel-button").addEventListener("click", function() {
+                // Navigate to 4.html when 'Yes' is clicked
+                window.location.href = chrome.runtime.getURL("6.html");
+            });
+        </script>
+
+      </footer>
