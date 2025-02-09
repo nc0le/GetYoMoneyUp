@@ -53,7 +53,8 @@ function showPopup(message) {
                     chrome.storage.local.set({ closedUrls }); // ✅ Remember this page is closed
                     popup.remove();
                 });
-                document.getElementById("btn-no")?.addEventListener("click", showPopup5);
+                document.getElementById("btn-no")?.addEventListener("click", () =>{
+                    showPopup5(popup)});
                 document.getElementById("btn-yes")?.addEventListener("click", () => {
                     showPopup2(popup);
                     // closedUrls.push(currentUrl);
@@ -76,46 +77,75 @@ function showPopup2(popup) {
             popup.innerHTML = html2; // ✅ Replace the content of the popup with 2.html
 
             // Attach event listeners for the new popup (2.html)
+            document.getElementById("close-button")?.addEventListener("click", () => popup.remove());
+            document.getElementById("btn-save")?.addEventListener("click", () => {
+                saveForLater();
+                popup.remove();
+            });
+            document.getElementById("cart-button")?.addEventListener("click", showSavedItems);
+            
+
+            document.getElementById("btn-no")?.addEventListener("click", () => {
+                showPopup5(popup)
+                alert("You pressed Yes on the second popup!"); // ✅ Customize action for the second popup
+                popup.remove();
+            });
+
+            document.getElementById("btn-yes")?.addEventListener("click", () => {
+                showPopup3(popup)
+                alert("You pressed Yes on the second popup!"); // ✅ Customize action for the second popup
+                popup.remove();
+            });
+        })
+        .catch(error => console.error("Error loading second popup:", error));
+}
+function showPopup3(popup) {
+    // Fetch 2.html to load the second popup content
+    console.log("Loading 2.html inside the popup...");
+    fetch(chrome.runtime.getURL("3.html"))
+        .then(response => response.text())
+        .then(html3 => {
+            // let popup = document.createElement("div");
+            popup.innerHTML = html3; // ✅ Replace the content of the popup with 2.html
+
+            // Attach event listeners for the new popup (2.html)
+            document.getElementById("close-button")?.addEventListener("click", () => popup.remove());
+            // document.getElementById("btn-no")?.addEventListener("click", showPopup5(popup));
+            document.getElementById("btn-yes")?.addEventListener("click", () => {
+                // showPopup4(popup)
+                alert("You pressed Yes on the second popup!"); // ✅ Customize action for the second popup
+                popup.remove();
+            });
+        })
+        .catch(error => console.error("Error loading second popup:", error));
+}
+
+function showPopup5(popup) {
+    // Fetch 2.html to load the second popup content
+    console.log("Loading 5.html inside the popup...");
+    fetch(chrome.runtime.getURL("5.html"))
+        .then(response => response.text())
+        .then(html5 => {
+            // let popup = document.createElement("div");
+            popup.innerHTML = html5; // ✅ Replace the content of the popup with 2.html
+
+            // Attach event listeners for the new popup (2.html)
             document.getElementById("close-button")?.addEventListener("click", () => popup2.remove());
             document.getElementById("btn-save")?.addEventListener("click", () => {
                 saveForLater();
                 popup.remove();
             });
             document.getElementById("cart-button")?.addEventListener("click", showSavedItems);
-            document.getElementById("btn-no")?.addEventListener("click", showPopup5);
+            document.getElementById("btn-no")?.addEventListener("click", ()=>{
+                showPopup5(popup)
+            });
+
             document.getElementById("btn-yes")?.addEventListener("click", () => {
                 alert("You pressed Yes on the second popup!"); // ✅ Customize action for the second popup
-                popup2.remove();
+                popup.remove();
             });
         })
         .catch(error => console.error("Error loading second popup:", error));
-}
-
-function showPopup5(message) {
-    if (document.getElementById("custom-popup")) return; // Prevent duplicate popups
-
-    fetch(chrome.runtime.getURL("5.html"))
-        .then(response => response.text())
-        .then(html => {
-            let popup = document.createElement("div");
-            popup.id = "custom-popup";
-            popup.className = "custom-popup";
-            popup.innerHTML = html;
-            document.body.appendChild(popup);
-
-            // Attach event listeners AFTER inserting the popup
-            document.querySelector(".close-button")?.addEventListener("click", () => {
-                popup.remove(); // Removes the entire popup
-            });
-            document.getElementById("btn-save")?.addEventListener("click", () => {
-                saveForLater();
-                popup.remove(); // Close popup after saving
-            });
-            document.getElementById("cart-button")?.addEventListener("click", showSavedItems);
-            document.getElementById("btn-exit")?.addEventListener("click", () => popup.remove());
-            document.getElementById("btn-yes")?.addEventListener("click", showPopup2);
-        })
-        .catch(error => console.error("Error loading popup:", error));
 }
 
 

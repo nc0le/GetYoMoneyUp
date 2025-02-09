@@ -30,7 +30,14 @@
             });
         </script>
         <button id="btn-save" class="btn btn-save">Save for Later</button>
+       
         <button id="btn-no" class="btn btn-no">No</button>
+        <script>
+            document.getElementById("btn-no").addEventListener("click", function() {
+                // Navigate to 5.html when 'Yes' is clicked
+                window.location.href = chrome.runtime.getURL("5.html");
+            });
+        </script>
       </div>
     </div>
   </body>

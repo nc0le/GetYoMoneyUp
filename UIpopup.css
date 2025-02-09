@@ -1,3 +1,5 @@
+
+
 .custom-popup {
   position: fixed;
   top: 20%;
@@ -10,12 +12,11 @@
   z-index: 10000;
   border-radius: 35px;
   border: 5px solid #B2B2B2;
-}
+ }
   .popup-content {
     text-align: center;
   }
-  
-  .popup-content button {
+   .popup-content button {
     margin: 10px;
     padding: 8px 12px;
     border: none;
@@ -24,21 +25,19 @@
     cursor: pointer;
     border-radius: 5px;
   }
-  
-  .popup-content button:hover {
+   .popup-content button:hover {
     background: #ff5c5c;
   }
-  
-  /* page 1*/
-
+   /* page 1*/
+ 
+ 
   .modal-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 32px;
   }
-  
-  .close-button,
+   .close-button,
   .cart-button {
     background: none;
     border: none;
@@ -47,52 +46,48 @@
     font-size: 100px;
     padding: -20px;
   }
-
+ 
+ 
   .close-button {
     margin-left: -100; /* Pushes to the left */
   }
-  
-  .cart-button {
+   .cart-button {
     margin-right: -100; /* Pushes to the right */
   }
-
-
+ 
+ 
+ 
+ 
   .site-name {
     color: #7AA672;
     font-size: 18px;
   }
-  
-  .warning-icon {
+   .warning-icon {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 24px;
   }
-  
-  .warning-icon img {
+   .warning-icon img {
     max-width: 150px; /* Set a maximum width */
     height: auto; /* Maintain aspect ratio */
   }
-  
-  .confirmation-text {
+   .confirmation-text {
     text-align: center;
     margin-bottom: 24px;
     font-size: 18px;
     color: #1f2937;
   }
-  
-  .highlight {
+   .highlight {
     color: #ef4444;
     font-weight: 600;
   }
-  
-  .button-group {
+   .button-group {
     display: flex;
     justify-content: center;
     gap: 16px;
   }
-  
-  .btn {
+   .btn {
     padding: 8px 13px;
     border: none;
     border-radius: 8px;
@@ -100,31 +95,38 @@
     font-size: 15px;
     transition: background-color 0.2s;
   }
-  
-  .btn-yes {
+   .btn-yes {
     background: #fee2e2;
     color: #dc2626;
   }
-
+ 
+ 
   .btn-yes:hover {
     background: #fecaca;
   }
-  
-  .btn-save {
+   .btn-save {
     background: #f3f4f6;
-
+ 
+ 
     color: #4b5563;
   }
-  
-  .btn-save:hover {
+   .btn-save:hover {
     background: #e5e7eb;
   }
-  
-  .btn-no {
+   .btn-no {
     background: #E2F2D9;
     color: #5E8E54;
   }
-  
-  .btn-no:hover {
+   .btn-no:hover {
     background: #c5deb7;
   }
+ 
+ 
+ /* page 2*/
+ .asking-text {
+  text-align: center;
+  margin-bottom: 24px;
+  font-size: 18px;
+  color: #1f2937;
+ }
+ 

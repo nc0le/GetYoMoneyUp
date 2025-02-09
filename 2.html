@@ -1,73 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>getyomosdkfldslfkdsneyup</title>
-        <link rel="stylesheet" href="UIpopup.css">
-        <script src="content.js"></script>
-    <head>
+   <head>
+       <title>getyomoneyup</title>
+       <link rel="stylesheet" href="UIpopup.css">
+       <script src="content.js"></script>
+   <head>
+  
+   <body>
+       <div class="modal-header">
+            <button id="close-button" class="btn close-button">✕</button>
+            <span class="site-name">getyomoneyup</span>
+            <button id="cart-button" class="btn cart-button">🛒</button>
+       </div>
+          
+       <div class="bunny-icon">
+           <img src="judgementalBunny.jpg" alt="Judgemental Bunny">
+       </div>
+    
+       <div class="asking-text">
+           <p>Think about it some more. Is this something you need?</p>
+       </div>
+    
+       <div class="button-group">
+           <button id="btn-yes" class="btn btn-yes">Yes</button>
+           <script>
+                document.getElementById("btn-yes").addEventListener("click", function() {
+                    // Navigate to 3.html when 'Yes' is clicked
+                    window.location.href = chrome.runtime.getURL("3.html");
+                });
+            </script>
+           <button id="btn-save" class="btn btn-save">Save for Later</button>
+           <button id="btn-no" class="btn btn-no">No</button>
+            <script>
+                document.getElementById("btn-no").addEventListener("click", function() {
+                    // Navigate to 5.html when 'Yes' is clicked
+                    window.location.href = chrome.runtime.getURL("5.html");
+                });
+            </script>
+       </div>
 
-    <!DOCTYPE html>
-    <div class="modal-container">
-    <div class="modal-header">
-        <button id="close-button">✕</button>
-        <span class="site-name">getyomoneyup</span>
-        <button id="cart-button">🛒</button>
-        <script src="content.js"></script>
-    </div>
-    
-    <div class="warning-icon">
-        <div class="warning-circle">
-            <div class="warning-triangle"></div>
-        </div>
-    </div>
 
-    <div class="confirmation-text">
-        Are you <span class="highlight">SURE</span> you want to buy this product?
-    </div>
-
-    <!-- <div class="button-group">
-        <button id="btn-yes">Yes</button>
-        <button id="btn-save">Save for Later</button>
-        <button id="btn-no">No</button>
-    </div> -->
-    
-    </div>
-<!-- <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>getyomoneyup</title>
-        <link rel="stylesheet" href="UIpopup.css">
-        <script src="content.js"></script>
-    <head>
-
-    <!DOCTYPE html>
-    <section class="congratulations-modal">
-        <div class="modal-container">
-        <header class="modal-header">
-            <img
-            loading="lazy"
-            src="https://cdn.builder.io/api/v1/image/assets/5908bb3fc4274044aed8528e1ce2987a/25ca456a9fe676f5170a566d99e476d9ae1eb6f9faf2ba11955a0126923574f1?placeholderIfAbsent=true"
-            class="header-icon"
-            alt="Success icon"
-            />
-            <h1 class="header-title">getyomoneyup</h1>
-            <img
-            loading="lazy"
-            src="https://cdn.builder.io/api/v1/image/assets/5908bb3fc4274044aed8528e1ce2987a/a7723ede067c3c88a621a9879eb1053bf343a59d89f308fbf70192882d47f493?placeholderIfAbsent=true"
-            class="header-icon-secondary"
-            alt="Celebration icon"
-            />
-        </header>
-    
-        <img
-            loading="lazy"
-            src="https://cdn.builder.io/api/v1/image/assets/5908bb3fc4274044aed8528e1ce2987a/d07ab8f35d7ceec7dfc00ca8b996856b79fe125a79d503c988e8db6eb80777cb?placeholderIfAbsent=true"
-            class="modal-image"
-            alt="Success illustration"
-        />
-    
-        <h2 class="modal-message">Good choice! Your future self is thanking you.</h2>
-    
-        <button class="btn-exit">Exit</button>
-        </div>
-    </section> -->
+   </body>
+   </html>
