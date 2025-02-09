@@ -8,7 +8,7 @@
   background: white;
   padding: 20px 30px 40px; /* Top 20px, Left/Right 40px, Bottom 40px */
   max-width: 350px;
-  width: 80%;
+  width: 100%;
   z-index: 10000;
   border-radius: 35px;
   border: 5px solid #B2B2B2;
@@ -32,28 +32,35 @@
  
  
   .modal-header {
+
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 32px;
   }
-   .close-button,
-  .cart-button {
+
+
+  .close-button {
     background: none;
     border: none;
     color: #666;
     cursor: pointer;
-    font-size: 100px;
-    padding: -20px;
-  }
- 
- 
-  .close-button {
-    margin-left: -100; /* Pushes to the left */
+    font-size: 24px; /* ✅ Smaller, reasonable size */
+    padding: 10px; /* ✅ Padding for better spacing */
+    margin: 0; /* Pushes to the left */
   }
    .cart-button {
-    margin-right: -100; /* Pushes to the right */
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    font-size: 24px; /* ✅ Smaller, reasonable size */
+    padding: 10px; /* ✅ Padding for better spacing */
+    margin: 0; /* Pushes to the right */
   }
+ 
+   
+ 
  
  
  
@@ -61,6 +68,7 @@
   .site-name {
     color: #7AA672;
     font-size: 18px;
+    align-items: center;
   }
    .warning-icon {
     display: flex;
@@ -166,6 +174,7 @@
   background: none;
   border: none;
   cursor: pointer;
+  border-radius: 0px;
 }
 
 .cancel-button {

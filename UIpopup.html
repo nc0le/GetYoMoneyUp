@@ -1,12 +1,97 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <h1>GetYoMoneyUp</h1>
-    <script src="popup.js"></script>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GetYoMoneyUp</title>
+    
     <link rel="stylesheet" type="text/css" href="UIpopup.css">
-  </head>
-  <body>
-    <h3>Saved for Later</h3>
-    <ul id="later-list"></ul>
-  </body>
-</html> 
+    <script src="popup.js" defer></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+            width: 300px;
+        }
+
+        .popup-container {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        h3 {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        #later-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        #later-list li {
+            background: #e9ecef;
+            margin: 5px 0;
+            padding: 8px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .delete-btn {
+            background: red;
+            color: white;
+            border: none;
+            padding: 5px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .close-btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .close-btn:hover {
+            background: #0056b3;
+        }
+    </style> 
+</head>
+<body>
+
+    <div class="popup-container">
+        <h1>GetYoMoneyUp</h1>
+        <h3>Saved for Later</h3>
+        <ul id="later-list"></ul>
+        <button class="close-btn" id="close-popup">Close</button>
+    </div>
+
+    <script>
+        document.getElementById("close-popup").addEventListener("click", () => {
+            window.close();
+        });
+    </script>
+
+</body>
+</html>
+
+
