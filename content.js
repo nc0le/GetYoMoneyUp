@@ -70,8 +70,10 @@ function showPopup2(popup) {
                 saveForLater();
                 showPopupEmpty(popup);
             });
-            document.getElementById("cart-button")?.addEventListener("click", showSavedItems);
-            
+            document.getElementById("cart-button")?.addEventListener("click", () =>{
+                showSavedItems();
+                showPopupEmpty(popup)
+            });            
 
             document.getElementById("btn-no")?.addEventListener("click", () => {
                 showPopup5(popup)
@@ -96,8 +98,10 @@ function showPopup3(popup) {
             // Attach event listeners for the new popup (2.html)
             document.getElementById("close-button")?.addEventListener("click", () => showPopupEmpty());
             
-            document.getElementById("cart-button")?.addEventListener("click", showSavedItems);
-            
+            document.getElementById("cart-button")?.addEventListener("click", () =>{
+                showSavedItems();
+                showPopupEmpty(popup)
+            });            
 
             document.getElementById("cancel-button")?.addEventListener("click", () => {
                 showPopup6(popup)
@@ -135,7 +139,11 @@ function showPopup4(popup) {
             // Attach event listeners for the new popup (2.html)
             document.getElementById("close-button")?.addEventListener("click", () => showPopupEmpty(popup));
             
-            document.getElementById("cart-button")?.addEventListener("click", showSavedItems);
+            document.getElementById("cart-button")?.addEventListener("click", () =>{
+                showSavedItems();
+                showPopupEmpty(popup)
+            }
+                );
 
             document.getElementById("exit-button")?.addEventListener("click", () => {
                 showPopupEmpty(popup);
@@ -156,8 +164,10 @@ function showPopup5(popup) {
             // Attach event listeners for the new popup (2.html)
             document.getElementById("close-button")?.addEventListener("click", () => showPopupEmpty(popup));
             
-            document.getElementById("cart-button")?.addEventListener("click", showSavedItems);
-
+            document.getElementById("cart-button")?.addEventListener("click", () =>{
+                showSavedItems();
+                showPopupEmpty(popup)
+            });
             document.getElementById("exit-button1")?.addEventListener("click", () => {
                 showPopupEmpty(popup);
             });
@@ -177,12 +187,14 @@ function showPopup6(popup) {
             // Attach event listeners for the new popup (2.html)
             document.getElementById("close-button")?.addEventListener("click", () => showPopupEmpty(popup));
             
-            document.getElementById("cart-button")?.addEventListener("click", showSavedItems);
-
+            document.getElementById("cart-button")?.addEventListener("click", () =>{
+                showSavedItems();
+                showPopupEmpty(popup)
+            });
             document.getElementById("exit-button1")?.addEventListener("click", () => {
                 showPopupEmpty(popup);
             });
-            document.getElementById("btn-save")?.addEventListener("click", () => {
+            document.getElementById("save-button")?.addEventListener("click", () => {
                 saveForLater();
                 showPopupEmpty(popup);
             });
@@ -286,20 +298,26 @@ function showSavedItems() {
             savedItemsContainer.appendChild(item);
         });
 
-        // Close button for saved items popup
-        document.getElementById("close-button").addEventListener("click", () =>showPopupEmpty(popup));
-
-        // Attach event listeners to delete buttons
-        document.querySelectorAll(".delete-btn").forEach(button => {
-            button.addEventListener("click", (event) => {
-                let index = event.target.getAttribute("data-index");
-                deleteSavedItem(index);
-                popup.remove();
-                setTimeout(showSavedItems, 100); // Refresh the list
+        // ✅ Properly attach event listener AFTER popup is inserted into DOM
+        setTimeout(() => {
+            document.getElementById("close-button").addEventListener("click", () => {
+                console.log("Showing empty popup");
+                showPopupEmpty(popup); // ✅ This will properly remove the popup
             });
-        });
+
+            // Attach event listeners to delete buttons
+            document.querySelectorAll(".delete-btn").forEach(button => {
+                button.addEventListener("click", (event) => {
+                    let index = event.target.getAttribute("data-index");
+                    deleteSavedItem(index);
+                    // popup.remove(); // ✅ Properly close popup on delete
+                    setTimeout(showSavedItems, 100); // Refresh the list
+                });
+            });
+        }, 100); // ✅ Ensures elements exist before attaching event listeners
     });
 }
+
 
 
 /* Delete a Saved Item */

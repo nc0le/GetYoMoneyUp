@@ -5,6 +5,7 @@
   top: 10%;
   left: 50%;
   transform: translateX(-50%);
+  align-items: center;
   background: white;
   padding: 20px 30px 40px; /* Top 20px, Left/Right 40px, Bottom 40px */
   max-width: 350px;
@@ -32,32 +33,39 @@
  
  
   .modal-header {
-
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin-bottom: 32px;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 4px;
+    font-size: 100px;
+    padding: -20px;
   }
 
 
   .close-button {
+    position: absolute;
+    left: 10px; /* ✅ Moves it to the left */
     background: none;
     border: none;
     color: #666;
     cursor: pointer;
-    font-size: 24px; /* ✅ Smaller, reasonable size */
-    padding: 10px; /* ✅ Padding for better spacing */
-    margin: 0; /* Pushes to the left */
-  }
-   .cart-button {
+    font-size: 24px;
+    padding: 10px;
+}
+
+.cart-button {
+    position: absolute;
+    right: 10px; /* ✅ Moves it to the right */
     background: none;
     border: none;
     color: #666;
     cursor: pointer;
-    font-size: 24px; /* ✅ Smaller, reasonable size */
-    padding: 10px; /* ✅ Padding for better spacing */
-    margin: 0; /* Pushes to the right */
-  }
+    font-size: 24px;
+    padding: 10px;
+}
  
    
  
@@ -69,6 +77,8 @@
     color: #7AA672;
     font-size: 18px;
     align-items: center;
+    flex-grow: 2;  /* ✅ Ensures it takes up space and centers */
+    text-align: center;
   }
    .warning-icon {
     display: flex;
@@ -81,6 +91,13 @@
     height: auto; /* Maintain aspect ratio */
   }
    .confirmation-text {
+
+    
+      font-family: "Manrope", serif;
+      font-optical-sizing: auto;
+      font-weight: 600;
+      /* font-style: normal; */
+    
     text-align: center;
     margin-bottom: 24px;
     font-size: 18px;
@@ -153,7 +170,8 @@
   color: rgba(205, 74, 74, 1);
   font-size: 70px;
   line-height: 75px;
-  align-self: flex-end;
+  font-weight: 8px;
+  align-self: center;
 }
 
 .confirmation-actions {
@@ -182,7 +200,6 @@
   background-color: rgba(226, 242, 217, 1);
   border: 4px solid rgba(191, 217, 176, 1);
   align-self: flex-start;
-  padding: 5px 26px 27px;
   font-size: 35px;
   color: rgba(94, 142, 84, 1);
   white-space: nowrap;
