@@ -14,29 +14,42 @@ function checkIfCheckout() {
 function showPopup(message) {
     if (document.getElementById("custom-popup")) return; 
     let popup = document.createElement("div");
-    
     popup.id = "custom-popup";
     popup.className = "custom-popup";
     popup.innerHTML = `
-      <div class="popup-content">
-        <span clas = "manrope-font">
-            <h1>getyomoneyup</h1>
-        </span>
-         <p>${message}</p>
-        <button id="yes-popup">Yes</button>
-        <button id="save-later">Save for Later</button>
-        <button id="close-popup">Close</button>
-       
+     <section class="purchase-modal">
+    <div class="modal-container">
+        <header class="modal-header">
+        <div class="header-content">
+        <div class="modal-header">
+            <button class="close-button">✕</button>
+            <span class="site-name">getyomoneyup</span>
+            <button class="cart-button">🛒</button>
+        </div>
+       </div>
+            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/5908bb3fc4274044aed8528e1ce2987a/23bdda4877b74da786b8ffe93956e2bb9e54ad0f0839f1ec39c61e892d166b7d?placeholderIfAbsent=true" class="header-image" alt="Header illustration" />
+        </div>
+        </header>
 
-       
-      </div>`;
+        <h2 class="modal-title">Are you <span class="highlight">SURE</span> you want to<br>buy this product?</h2>
+
+        <nav class="action-buttons">
+        <button class="btn btn-yes">Yes</button>
+        <button class="btn btn-save">Save for Later</button>
+        <button class="btn btn-no">No</button>
+        </nav>
+    </div>
+    </section>`;
     document.body.appendChild(popup);
 
-    document.getElementById("close-popup").addEventListener("click", () => {
+    // document.getElementById("close-button").addEventListener("click", () => {
+    //     popup.remove();
+    // });
+    document.getElementById("btn-no").addEventListener("click", () => {
         popup.remove();
     });
 
-    document.getElementById("save-later").addEventListener("click", () => {
+    document.getElementById("btn-save").addEventListener("click", () => {
         chrome.storage.local.get("laterList", (data) => {
             let list = data.laterList || [];
             list.push(window.location.href);
