@@ -23,6 +23,12 @@
 
       <div class="button-group">
         <button id="btn-yes" class="btn btn-yes">Yes</button>
+        <script>
+            document.getElementById("btn-yes").addEventListener("click", function() {
+                // Navigate to 2.html when 'Yes' is clicked
+                window.location.href = chrome.runtime.getURL("2.html");
+            });
+        </script>
         <button id="btn-save" class="btn btn-save">Save for Later</button>
         <button id="btn-no" class="btn btn-no">No</button>
       </div>
