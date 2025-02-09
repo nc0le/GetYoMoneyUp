@@ -272,13 +272,21 @@ function showSavedItems() {
         popup.id = "saved-popup";
         popup.className = "custom-popup";
         popup.innerHTML = `
+            <head>
+                <link rel="preconnect" href="https://fonts.googleapis.com">
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+                <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+            </head>
             <div class="modal-header">
                 <button id="close-button" class="btn close-button">✕</button>
-                <span class="site-name">getyomoneyup</span>
+                <span class="site-name">       getyomoneyup</span>
+                
             </div> 
 
             <div class="popup-content">
+            <div class="confirmation-text">
                 <h3>Saved for Later</h3>
+            </div>
                 <ul id="saved-items">
                     ${list.length === 0 ? "<p>No saved items.</p>" : ""}
                 </ul>

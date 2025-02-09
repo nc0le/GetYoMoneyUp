@@ -75,6 +75,9 @@
  
   .site-name {
     color: #7AA672;
+    font-family: "Manrope", serif;
+      font-optical-sizing: auto;
+      font-weight: 600;
     font-size: 18px;
     align-items: center;
     flex-grow: 2;  /* ✅ Ensures it takes up space and centers */
